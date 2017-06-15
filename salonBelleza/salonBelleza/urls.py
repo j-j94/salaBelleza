@@ -21,4 +21,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
 	url(r'^$', views.bienvenida),
 	url(r'^facturacion/', include('facturacion.urls')),
+    url(r'^cliente/', include('clientes.urls')),
+    url(r'^empleado/', include('empleados.urls')),
 ]

@@ -1,0 +1,15 @@
+<html>
+<head>
+<title>Nuevo Clientes</title>
+</head>
+<body>
+<form method="post" action="guardarCliente">{% csrf_token %}
+	Cédula: <input type="text" name="cedula" ><br>
+	Nombre: <input type="text" name="nombre" ><br>
+	Apellido: <input type="text" name="apellido" ><br>
+	correo: <input type="text" name="correo" ><br>
+
+<input type="submit" value="Guardar">
+</form>
+</body>
+</html>
