@@ -13,6 +13,6 @@ def guardarC(request):
 	a = request.POST["apellido"]
 	ce = request.POST["cedula"]
 	c = request.POST["correo"]
-	c = Cliente(cedula=ce, nombre=n,apellido=a,correo=c)
-	c.save()
-	return render(request, 'bienvenida.html', {'mensaje':'cliente guardado'}) 
+	cl = Cliente(cedula=ce, nombre=n,apellido=a,correo=c)
+	cl.save()
+	return render(request, 'bienvenida.html', {'mensaje':'cliente guardado'})

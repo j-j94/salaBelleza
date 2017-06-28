@@ -1,8 +1,6 @@
-<html>
-<head>
-<title>bienvenido prueba</title>
-</head>
-<body>
-<h1>{{mensaje}}</h1>
-</body>
-</html>
+{% extends "base.html"%}
+{% block title %}Bienvenida{% endblock %}
+
+{% block content %}
+    <p>{{ mensaje }}</p> 
+{% endblock %}
