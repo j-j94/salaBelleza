@@ -7,6 +7,9 @@ def clientes(request):
 
 def newCliente(request):
 	return render(request, 'addcliente.html')
+def verCliente(request):
+	cli =Cliente.objects.all()
+	return render(request, 'verclientes.html', {'cli':cli})
 
 def guardarC(request):
 	n = request.POST["nombre"]

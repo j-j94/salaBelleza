@@ -1,0 +1,20 @@
+{% extends "base.html"%}
+{% block js %}
+{%load static from staticfiles%}
+<script src="{% static "ejemplo.js"%}"></script>
+{%endblock%}
+{% block title %}Clientes{% endblock %}
+
+{% block content %}
+<h2>Clientes</h2>
+
+<button>Actualizar</button>
+	<table>
+<tr><th>cedula</th><th>nombre</th></tr>
+{%for i in cli%}
+<tr>
+  <td>{{i.cedula}}</td><td>{{i}}</td><td><input type="button" name="eliminar"></td>
+</tr>
+{%endfor%}
+  </table>
+{% endblock %}
