@@ -59,7 +59,7 @@ ROOT_URLCONF = 'salonBelleza.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/home/danny/salaBelleza/salonBelleza/salonBelleza/templates',],
+        'DIRS': [os.path.join(BASE_DIR, "salonBelleza/templates"),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
