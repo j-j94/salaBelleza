@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from clientes.models import Cliente
+from django.http import HttpResponse
 
 # Create your views here.
 def clientes(request):
@@ -19,3 +20,7 @@ def guardarC(request):
 	cl = Cliente(cedula=ce, nombre=n,apellido=a,correo=c)
 	cl.save()
 	return render(request, 'bienvenida.html', {'mensaje':'cliente guardado'})
+def eliminar(request):
+	p =request.POST["prueba"]
+	print(p)
+	return HttpResponse("funciono")

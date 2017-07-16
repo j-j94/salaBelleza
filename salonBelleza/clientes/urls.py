@@ -7,4 +7,5 @@ urlpatterns = [
 	url(r'^nuevoCliente$', views.newCliente),
 	url(r'^guardarCliente$',views.guardarC),
 	url(r'^mostrarClientes$',views.verCliente),
+	url(r'^eliminacion$',views.eliminar),
 ]

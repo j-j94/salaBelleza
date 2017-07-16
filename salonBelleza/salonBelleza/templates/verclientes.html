@@ -13,8 +13,9 @@
 <tr><th>cedula</th><th>nombre</th></tr>
 {%for i in cli%}
 <tr>
-  <td>{{i.cedula}}</td><td>{{i}}</td><td><input type="button" name="eliminar"></td>
+  <td>{{i.cedula}}</td><td>{{i}}</td><td><input type="button" class="eliminar" ></td>
 </tr>
 {%endfor%}
   </table>
+	<div id="resultado"></div>
 {% endblock %}
