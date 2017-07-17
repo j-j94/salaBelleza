@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from clientes.models import Cliente
 from django.http import HttpResponse
+from django.core.serializers import serialize
+from django.http import JsonResponse
 
 # Create your views here.
 def clientes(request):
@@ -9,8 +11,7 @@ def clientes(request):
 def newCliente(request):
 	return render(request, 'addcliente.html')
 def verCliente(request):
-	cli =Cliente.objects.all()
-	return render(request, 'verclientes.html', {'cli':cli})
+	return render(request, 'verclientes.html')
 
 def guardarC(request):
 	n = request.POST["nombre"]
@@ -21,6 +22,8 @@ def guardarC(request):
 	cl.save()
 	return render(request, 'bienvenida.html', {'mensaje':'cliente guardado'})
 def eliminar(request):
-	p =request.POST["prueba"]
-	print(p)
-	return HttpResponse("funciono")
+	return HttpResponse("algo")
+def actualizar(request):
+	cli =Cliente.objects.all()
+	cli2=serialize('json', cli)
+	return HttpResponse(cli2)

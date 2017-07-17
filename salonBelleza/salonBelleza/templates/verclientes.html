@@ -8,14 +8,9 @@
 {% block content %}
 <h2>Clientes</h2>
 
-<button>Actualizar</button>
-	<table>
-<tr><th>cedula</th><th>nombre</th></tr>
-{%for i in cli%}
-<tr>
-  <td>{{i.cedula}}</td><td>{{i}}</td><td><input type="button" class="eliminar" ></td>
-</tr>
-{%endfor%}
+<button class="actualizar">Actualizar</button>
+	<table id="tablaprueba" border="solid">
+<tr><th>cedula</th><th>nombre</th><th>correo</th><th></th></tr>
   </table>
 	<div id="resultado"></div>
 {% endblock %}
