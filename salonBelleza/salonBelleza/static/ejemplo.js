@@ -21,39 +21,33 @@ $(document).ready(function(){
         });
     });
 //
+
+function actualizarTabla(){
+  $("#tablaprueba").dataTable({
+    "ajax":{url:"/cliente/actualizar"},
+    "destroy":true,
+    "columns":[
+      {"data":"cedula"},
+      {"data":"nombre"},
+      {"data":"correo"},
+      {"data":"boton"}
+    ]
+  });
+}
    $(".actualizar").click(function(){
-    var url = "/cliente/actualizar";
-    $.ajax({
-      type: "GEST",
-      url: url,
-      beforeSend: function(){
-        $("#resultado").html("procesando...");
-      },
-      success: function (response){
-        personas=JSON.parse(response)
-        for (var i in personas){
-          nuevafila="<tr><td>"+personas[i].fields.cedula+
-          "</td><td>"+personas[i].fields.nombre+personas[0].fields.apellido+
-          "</td><td>"+personas[i].fields.correo+"</td><td><button class=\"eliminar\">E</button></td></tr>";
-          $("#tablaprueba").append(nuevafila);
-          $("#resultado").html("");
-        }
-      }
-    });
+     actualizarTabla();
    });
 
-   $(".eliminar").click(function(){
-     console.log("si");
+   $("#tablaprueba").on("click","button.eliminar", function(){
      var url = "/cliente/eliminacion";
+     var x=$(this).attr("id");
      $.ajax({
        type:"POST",
        url: url,
-       data: {"cedula":1032462924},
-       beforeSend: function(){
-         console.log("esperadno");
-       },
+       data: {"id":x},
        success: function (response){
-         console.log(response)
+         alert(response);
+         actualizarTabla();
        }
      });
    });

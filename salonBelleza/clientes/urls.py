@@ -8,4 +8,5 @@ urlpatterns = [
 	url(r'^guardarCliente$',views.guardarC),
 	url(r'^mostrarClientes$',views.verCliente),
 	url(r'^actualizar$',views.actualizar),
+	url(r'^eliminacion$', views.eliminar),
 ]

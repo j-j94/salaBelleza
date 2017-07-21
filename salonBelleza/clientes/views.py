@@ -3,6 +3,7 @@ from clientes.models import Cliente
 from django.http import HttpResponse
 from django.core.serializers import serialize
 from django.http import JsonResponse
+import json
 
 # Create your views here.
 def clientes(request):
@@ -22,8 +23,14 @@ def guardarC(request):
 	cl.save()
 	return render(request, 'bienvenida.html', {'mensaje':'cliente guardado'})
 def eliminar(request):
-	return HttpResponse("algo")
+	i= request.POST["id"]
+	cli=Cliente.objects.get(pk=i)
+	cli.delete();
+	return HttpResponse("Eliminado")
 def actualizar(request):
 	cli =Cliente.objects.all()
-	cli2=serialize('json', cli)
-	return HttpResponse(cli2)
+	cli2=[]
+	for i in cli:
+		cli2.append({"nombre":i.nombre+" "+i.apellido, "cedula":i.cedula,
+		"correo":i.correo, "boton":"<button id=\""+str(i.pk)+"\" class=\"eliminar\">E</button>"})
+	return HttpResponse(json.dumps({"data":cli2}), content_type="aplication/json")
