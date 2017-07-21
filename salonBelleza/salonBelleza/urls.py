@@ -23,4 +23,6 @@ urlpatterns = [
 	url(r'^facturacion/', include('facturacion.urls')),
     url(r'^cliente/', include('clientes.urls')),
     url(r'^empleado/', include('empleados.urls')),
+    url(r'^login$', views.login),
+    url(r'^invalid$', views.invalido),
 ]

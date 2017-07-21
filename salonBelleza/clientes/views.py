@@ -1,8 +1,6 @@
 from django.shortcuts import render
 from clientes.models import Cliente
 from django.http import HttpResponse
-from django.core.serializers import serialize
-from django.http import JsonResponse
 import json
 
 # Create your views here.

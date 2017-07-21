@@ -1,6 +1,14 @@
 {% extends "base.html"%}
+{% block js %}
+{%load static from staticfiles%}
+<script src="{% static "login.js"%}"></script>
+{%endblock%}
 {% block title %}Bienvenida{% endblock %}
-
 {% block content %}
-    <p>{{ mensaje }}</p> 
+    <p>{{ mensaje }}</p>
+    <form action="/login" method="post">{%csrf_token%}
+    <input type="text" name="usuario" id="us"><br>
+    <input type="password" name="contrasenia" id="con"><br>
+    <input type="submit" value="Enviar"/>
+  </form>
 {% endblock %}
