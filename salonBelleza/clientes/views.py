@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from clientes.models import Cliente
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 import json
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def clientes(request):
@@ -9,8 +10,13 @@ def clientes(request):
 
 def newCliente(request):
 	return render(request, 'addcliente.html')
+
+
 def verCliente(request):
-	return render(request, 'verclientes.html')
+	if request.user.is_authenticated():
+		return render(request, 'verclientes.html')
+	else:
+		return HttpResponseRedirect("/invalid")
 
 def guardarC(request):
 	n = request.POST["nombre"]

@@ -24,5 +24,7 @@ urlpatterns = [
     url(r'^cliente/', include('clientes.urls')),
     url(r'^empleado/', include('empleados.urls')),
     url(r'^login$', views.login),
+    url(r'^principal$', views.principal),
+    url(r'^logout$', views.logout),
     url(r'^invalid$', views.invalido),
 ]
