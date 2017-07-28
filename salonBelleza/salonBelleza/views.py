@@ -5,7 +5,11 @@ from django.http import HttpResponseRedirect
 def bienvenida(request):
 	return render(request, 'bienvenida.html',{'mensaje':'Bienvenidos a ECO'})
 def principal(request):
+	print(request.user)
+	if request.user.is_authenticated():
 		return render(request, 'principal.html')
+	else:
+		return HttpResponseRedirect("/invalid")
 def invalido(request):
 	return render(request, 'bienvenida.html',{'mensaje':'no valido'})
 def login(request):

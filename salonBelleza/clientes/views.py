@@ -9,8 +9,10 @@ def clientes(request):
 	return render(request, 'bienvenida.html', {'mensaje':'cliente'})
 
 def newCliente(request):
-	return render(request, 'addcliente.html')
-
+	if request.user.is_authenticated():
+		return render(request, 'addcliente.html')
+	else:
+		return HttpResponseRedirect("/invalid")
 
 def verCliente(request):
 	if request.user.is_authenticated():
