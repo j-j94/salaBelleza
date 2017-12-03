@@ -12,8 +12,16 @@
   {% block js%}{% endblock %}
     <title>{% block title %}{% endblock %}</title>
 </head>
+ <style>
+.navbar { 
+    background-color: #f4511e; /* Orange */
+    color: #ffffff;
+}
+</style>
+  
+  
 <body>
-  <nav class="navbar navbar-inverse">
+  <nav class="navbar navbar-inverse" text-center>
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="/principal">Inicio <span class="glyphicon glyphicon-home"></span></a>
