@@ -30,7 +30,8 @@ function actualizarTabla(){
       {"data":"cedula"},
       {"data":"nombre"},
       {"data":"correo"},
-      {"data":"boton"}
+      {"data":"botonE"},
+      {"data":"botonA"}
     ]
   });
 }
@@ -50,5 +51,10 @@ function actualizarTabla(){
          actualizarTabla();
        }
      });
+   });
+   $("#tablaprueba").on("click","button.act", function(){
+     var x=$(this).attr("id");
+     var url = "/cliente/fupdate/"+x;
+     location.href=url;
    });
 });

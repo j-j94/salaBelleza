@@ -1,0 +1,15 @@
+{% extends "base.html"%}
+
+{% block title %}Nuevo Cliente{% endblock %}
+
+{% block content %}
+<h2>Actualizar cliente</h2>
+<form method="post" action="/cliente/update">{% csrf_token %}
+	<input typevalue=text name=id value={{datos.id}} style='display:none;'>
+	Cédula:<br> <input type="text" name="cedula" value={{datos.cedula}}><br>
+	Nombre: <br><input type="text" name="nombre" value={{datos.nombre}}><br>
+	Apellido:<br> <input type="text" name="apellido" value={{datos.apellido}}><br>
+	Correo: <br><input type="text" name="correo" value={{datos.correo}}><br>
+	<input type="submit" value="Actualizar">
+</form>
+{% endblock %}
