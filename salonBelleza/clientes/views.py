@@ -9,16 +9,30 @@ def clientes(request):
 	return render(request, 'bienvenida.html', {'mensaje':'cliente'})
 
 def newCliente(request):
-	if request.user.is_authenticated():
+
 		return render(request, 'addcliente.html')
-	else:
-		return HttpResponseRedirect("/invalid")
+
 
 def verCliente(request):
 	if request.user.is_authenticated():
 		return render(request, 'verclientes.html')
 	else:
 		return HttpResponseRedirect("/invalid")
+def fupdate(request, cid):
+	cli=Cliente.objects.get(pk=cid)
+	print(id)
+	return render(request, 'update.html', {'datos':cli})
+def update(request):
+	i=request.POST["id"]
+	n = request.POST["nombre"]
+	a = request.POST["apellido"]
+	ce = request.POST["cedula"]
+	c = request.POST["correo"]
+	Cliente.objects.filter(id=i).update(nombre=n)
+	Cliente.objects.filter(id=i).update(apellido=a)
+	Cliente.objects.filter(id=i).update(cedula=ce)
+	Cliente.objects.filter(id=i).update(correo=c)
+	return render(request, 'verclientes.html')
 
 def guardarC(request):
 	n = request.POST["nombre"]
@@ -27,7 +41,7 @@ def guardarC(request):
 	c = request.POST["correo"]
 	cl = Cliente(cedula=ce, nombre=n,apellido=a,correo=c)
 	cl.save()
-	return render(request, 'bienvenida.html', {'mensaje':'cliente guardado'})
+	return render(request, 'principal.html', {'mensaje':'cliente guardado'})
 def eliminar(request):
 	i= request.POST["id"]
 	cli=Cliente.objects.get(pk=i)
@@ -38,5 +52,6 @@ def actualizar(request):
 	cli2=[]
 	for i in cli:
 		cli2.append({"nombre":i.nombre+" "+i.apellido, "cedula":i.cedula,
-		"correo":i.correo, "boton":"<button id=\""+str(i.pk)+"\" class=\"eliminar\">E</button>"})
+		"correo":i.correo, "botonE":"<button id=\""+str(i.pk)+"\" class=\"eliminar\">E</button>",
+		"botonA":"<button id=\""+str(i.pk)+"\" class=\"act\">A</button>"})
 	return HttpResponse(json.dumps({"data":cli2}), content_type="aplication/json")
