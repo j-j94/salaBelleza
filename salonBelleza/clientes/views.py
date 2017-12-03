@@ -41,7 +41,7 @@ def guardarC(request):
 	c = request.POST["correo"]
 	cl = Cliente(cedula=ce, nombre=n,apellido=a,correo=c)
 	cl.save()
-	return render(request, 'bienvenida.html', {'mensaje':'cliente guardado'})
+	return render(request, 'principal.html', {'mensaje':'cliente guardado'})
 def eliminar(request):
 	i= request.POST["id"]
 	cli=Cliente.objects.get(pk=i)
