@@ -7,8 +7,14 @@
 {% block content %}
     <p>{{ mensaje }}</p>
     <form action="/login" method="post">{%csrf_token%}
-    <input type="text" name="usuario" id="us"><br>
-    <input type="password" name="contrasenia" id="con"><br>
-    <input type="submit" value="Enviar"/>
+        <div class="form-group">
+            <label for="us">Usuario: </label>
+            <input type="text" class="form-control" name="usuario" id="us" required><br>
+        </div>
+        <div class="form-group">
+            <label for="con">Contrasenia: </label>
+            <input type="password" name="contrasenia" id="con" required><br>
+        </div>
+    <input type="submit" class="btn btn-default" value="Enviar"/>
   </form>
 {% endblock %}
