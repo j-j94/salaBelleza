@@ -17,6 +17,20 @@
     background-color: #f4511e; /* Orange */
     color: #ffffff;
 }
+ h1 {
+      font-size: 15px;
+      text-transform: uppercase;
+	  text-align: center;
+      color: #303030;
+      font-weight: 600;
+      margin-bottom: 30px;
+  }
+  img {
+  border-radius: 25%;   
+  display: block;
+    margin: auto;
+    width: 50%;
+  }
 </style>
 <body>
   <nav class="navbar navbar-inverse">
@@ -32,6 +46,7 @@
     {% block content %}{% endblock %}
     {% block footer %}
     <hr>
+  <img src="https://decoraciondesala.com/wp-content/uploads/2016/04/salones-de-belleza.jpg" alt="Paris" width="300" height="300">
     <p>Gracias por visitar nuestro sitio web.</p>
 {% endblock %}
 </body>
